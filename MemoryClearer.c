@@ -44,7 +44,7 @@ Wanted (cosmetic):
 */
 
 #include <stdio.h>
-//#include <windows.h>; //for windows API :3 obviously
+#include <windows.h>; //for windows API :3 obviously
 #include <stdlib.h>
 #include <dirent.h>
 #include <string.h>
@@ -112,6 +112,8 @@ void clear_stdin() {
 char osCheck(){
 	//#ifdef command checking for what OS is operating using the macro. 
 	//Should be checking after compilation. if wanted to check before just add #ifdef #elif instead of if/else :3
+	//Was using IF/ELSE, changed to check initial check on my computer. REMEMBER TO CHANGE BACK.
+	//I did not remember. And i no wanna now >:3
 	
 	#ifdef _WIN32_
 		//sets value to windows. win32 is on all windows.
@@ -211,7 +213,7 @@ char hdCheck(char OS){
 			
 				
 			 if (diskGeometry.Geometry.MediaType == FixedMedia) {
-        		if (diskGeometry.DiskSize.QuadPart > 0) { // Ensure valid disk
+        			if (diskGeometry.DiskSize.QuadPart > 0) { // Ensure valid disk
 					DWORD rotationRate = diskGeometry.Geometry.BytesPerSector; 
 					if (rotationRate == 0) { //SSD's do not rotate :3
 						printf("Drive Type: SSD (Solid State Drive)\n");
@@ -303,6 +305,7 @@ char hdCheck(char OS){
 		
 		
 	}//END OF UNIX/LINUX
+	//I have confirmed the LINUX one works :D
 		
 		
 	printf("well idk, something went wrong in the hard drive check function. UwU");
